@@ -1,0 +1,13 @@
+//Author SL_RU. e-mail: [sl_ru@live.com](http://vk.com/write?email=sl_ru@live.com)
+//2013
+
+uniform sampler2D bgl_RenderedTexture;
+
+void main()
+{float ScreenW = 640., ScreenH = 480.;
+float Pixeliz = 5.;
+
+float pixW = Pixeliz*(1./ScreenW), pixH = Pixeliz*(1./ScreenH);
+vec2 pos = vec2(pixW*floor(gl_TexCoord[0].x/pixW), pixH*floor(gl_TexCoord[0].y/pixH));
+gl_FragColor = texture2D(bgl_RenderedTexture, pos);
+}
